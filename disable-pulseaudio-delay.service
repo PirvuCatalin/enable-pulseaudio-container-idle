@@ -1,0 +1,14 @@
+[Unit]
+Description=Disables pulseaudio docker (actually enables IDLE of PA) with delay after reboot
+After=rc-local.service
+
+[Service]
+ExecStart=/bin/bash /home/pi/disable-pulseaudio-delay.sh
+User=pi
+Group=pi
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=PP_1
+
+[Install]
+WantedBy=multi-user.target
